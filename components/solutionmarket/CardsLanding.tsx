@@ -20,12 +20,12 @@ export default function SolutionCard({
     gradient: string
 }) {
     return (
-        <Card style={{ backgroundColor: gradient }} className={`border-0 rounded-4xl py-2 flex flex-col h-[340px] w-full text-white shadow-sm hover:shadow-md transition-all overflow-hidden`}>
+        <Card style={{ backgroundColor: gradient }} className={`border-0 rounded-4xl py-2 flex flex-col h-[370px] w-full text-white shadow-sm hover:shadow-md transition-all overflow-hidden`}>
 
             <CardHeader className="p-4 pb-0 space-y-0 shrink-0">
                 <div className="flex justify-between items-start mb-3">
                     <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center backdrop-blur-sm">
-                        <LayoutGrid className="w-[18px] h-[18px] text-white" />
+                        <LayoutGrid className="w-[20px] h-[20px] text-white" />
                     </div>
                     <div className="flex items-center">
                         <Button variant="ghost" size="icon" className="h-8 w-8 text-white hover:bg-white/20 hover:text-white rounded-full">
@@ -36,7 +36,7 @@ export default function SolutionCard({
                         </Button>
                     </div>
                 </div>
-                <h4 className="text-[17px] font-bold leading-tight line-clamp-2">{title}</h4>
+                <h4 className="text-[26px] font-bold leading-tight line-clamp-2">{title}</h4>
             </CardHeader>
 
             <CardContent className="p-4 pt-1 pb-2 flex-1 flex flex-col min-h-0 overflow-hidden">
