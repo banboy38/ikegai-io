@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Search, ChevronDown, SlidersHorizontal } from "lucide-react"
 import SolutionCard from "./CardsLanding"
+import CreateAppDropdown from "../CreateApp"
 
 // Mock data arrays matching the design
 const featuredSolutions = [
@@ -83,7 +84,7 @@ export default function SolutionsMarketplace() {
             {/* --- HEADER SECTION --- */}
             <div className="flex justify-between items-end">
                 <div className="pt-2">
-                    <p className="text-[13px] text-gray-500 font-medium mb-0.5">Welcome to the</p>
+                    <p className="text-[14px] text-gray-800 font-medium mb-0.5">Welcome to the</p>
                     <h2 className="text-[28px] font-bold text-slate-900 tracking-tight leading-none">
                         Solutions Marketplace
                     </h2>
@@ -104,12 +105,8 @@ export default function SolutionsMarketplace() {
                     </div>
 
                     {/* Create Button */}
-                    <button className="bg-[#3B2C85] hover:bg-[#2A1F63] text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-medium shadow-sm transition-colors">
-                        + Create New App
-                        <span className="border-l border-white/20 pl-2 ml-1">
-                            <ChevronDown className="w-4 h-4" />
-                        </span>
-                    </button>
+                        <CreateAppDropdown/>
+
                 </div>
             </div>
 
@@ -153,7 +150,7 @@ export default function SolutionsMarketplace() {
 
                 {/* Featured Solutions */}
                 <div>
-                    <h3 className="text-[15px] font-bold text-slate-900 mb-4">Featured Solutions</h3>
+                    <h3 className="text-[20px] font-bold text-slate-900 mb-4">Featured Solutions</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
                         {featuredSolutions.map((solution) => (
                             <SolutionCard key={solution.id} {...solution} />
@@ -163,7 +160,7 @@ export default function SolutionsMarketplace() {
 
                 {/* Finance Solutions */}
                 <div>
-                    <h3 className="text-[15px] font-bold text-slate-900 mb-4">Finance Solutions</h3>
+                    <h3 className="text-[20px] font-bold text-slate-900 mb-4 pt-4">Finance Solutions</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
                         {financeSolutions.map((solution) => (
                             <SolutionCard key={solution.id} {...solution} />

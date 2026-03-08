@@ -10,7 +10,7 @@
 
 /* LEFT SECTION: Visual/Image */
 .visual-section {
-  flex: 3; /* Takes 60% of width (3 out of 5 parts) */
+  flex: 4; /* Takes 60% of width (3 out of 5 parts) */
   height: 100%;
   background-color: #FAF6FF;
   display: flex;
@@ -60,14 +60,14 @@
 
 .brand-subtext {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.25rem;
   margin-bottom: 0.25rem;
 }
 
 .platform-title {
   color: #5356bd;
   font-size: 2.2rem;
-  font-weight: 600;
+  font-weight: 800;
   margin-top: 0;
   margin-bottom: 2.5rem;
   line-height: 1.1;
@@ -80,7 +80,7 @@
 
 .input-group label {
   display: block;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-weight: 500;
   color: #4b5563;
   margin-bottom: 0.5rem;
@@ -88,7 +88,7 @@
 
 .input-group input {
   width: 100%;
-  padding: 0.8rem 1rem;
+  padding: 1rem 1rem;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   font-size: 1rem;
@@ -116,7 +116,7 @@
   width: 100%;
   background-color: #6265d2;
   color: white;
-  padding: 0.9rem;
+  padding: 1.2rem;
   border-radius: 8px;
   font-weight: 600;
   font-size: 1rem;
