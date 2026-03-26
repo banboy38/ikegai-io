@@ -4,10 +4,14 @@ import { Bell, Moon } from "lucide-react"
 
 export default function NavBar() {
     return (
-        <header className="h-16 px-8 flex items-center bg-white border-b border-gray-100">
+        <header className="h-16 px-8 flex items-center bg-[#F7F7F7] border-b border-[#E9E9E9]">
 
-            {/* If you add your page title back here later, it will naturally sit on the left */}
-            {/* <div>Page Title</div> */}
+            {/* Logo */}
+            <div className="h-20 flex items-center">
+                <h1 className="text-2xl font-black text-[#00338D] italic tracking-wider">
+                    KPMG
+                </h1>
+            </div>
 
             {/* Notification & Theme Toggles */}
             {/* ml-auto pushes this entire block to the far right */}

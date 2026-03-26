@@ -20,7 +20,7 @@ export default function SolutionCard({
     gradient: string
 }) {
     return (
-        <Card style={{ backgroundColor: gradient }} className={`border-0 rounded-4xl py-2 flex flex-col h-[370px] w-full text-white shadow-sm hover:shadow-md transition-all overflow-hidden`}>
+        <Card style={{ backgroundColor: gradient }} className={`border-0 rounded-4xl py-2 flex flex-col h-[20rem] w-[20rem] text-white shadow-sm hover:shadow-md transition-all overflow-hidden`}>
 
             <CardHeader className="p-4 pb-0 space-y-0 shrink-0">
                 <div className="flex justify-between items-start mb-3">

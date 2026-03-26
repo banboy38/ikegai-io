@@ -151,7 +151,7 @@ export default function SolutionsMarketplace() {
                 {/* Featured Solutions */}
                 <div>
                     <h3 className="text-[20px] font-bold text-slate-900 mb-4">Featured Solutions</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+                    <div className="flex flex-wrap gap-6">
                         {featuredSolutions.map((solution) => (
                             <SolutionCard key={solution.id} {...solution} />
                         ))}

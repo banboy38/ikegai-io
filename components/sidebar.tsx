@@ -7,16 +7,10 @@ import {
 
 export default function SideBar() {
     return (
-        <aside className="w-[180px] h-screen bg-white border-r border-gray-100 flex flex-col justify-between shrink-0">
+        <aside className="w-[12.625rem] h-full bg-[#F7F7F7] border-r border-gray-100 flex flex-col pt-8 justify-between shrink-0">
 
-            {/* Top Section: Logo & Menus */}
+            {/* Top Section: Menus */}
             <div>
-                {/* Logo */}
-                <div className="h-20 flex items-center px-6">
-                    <h1 className="text-2xl font-black text-[#00338D] italic tracking-wider">
-                        KPMG
-                    </h1>
-                </div>
 
                 <div className="py-2">
                     {/* Marketplace Section */}
