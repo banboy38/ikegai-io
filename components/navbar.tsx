@@ -8,9 +8,7 @@ export default function NavBar() {
 
             {/* Logo */}
             <div className="h-20 flex items-center">
-                <h1 className="text-2xl font-black text-[#00338D] italic tracking-wider">
-                    KPMG
-                </h1>
+                <img src="/logokpmg.svg" alt="Logo" width={100} />
             </div>
 
             {/* Notification & Theme Toggles */}

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import SolutionsMarketplace from "@/components/solutionmarket/landing"
 export default function Home() {
   return (
-    <div>
+    <div className="px-8 py-6">
       <SolutionsMarketplace />
     </div>
   );

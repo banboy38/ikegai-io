@@ -1,0 +1,156 @@
+.marketplace-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-bottom: 40px;
+}
+
+.marketplace-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.welcome-text {
+  font-size: 14px;
+  color: #1f2937;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.marketplace-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon-left {
+  position: absolute;
+  left: 12px;
+  border-right: 1px solid #e5e7eb;
+  padding-right: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding-left: 48px;
+  padding-right: 40px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 300px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #374151;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4b3b8e;
+  box-shadow: 0 0 0 1px #4b3b8e;
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.search-icon-right {
+  position: absolute;
+  right: 12px;
+  color: #9ca3af;
+}
+
+.tabs-section {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb;
+  margin-top: 8px;
+}
+
+.tab-button {
+  padding-bottom: 12px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-right: 24px;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #6b7280;
+}
+
+.tab-button.active {
+  border-bottom-color: #3b2c85;
+  color: #3b2c85;
+}
+
+.tab-button:hover:not(.active) {
+  color: #1f2937;
+}
+
+.tab-badge {
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.tab-badge.active {
+  background-color: #3b2c85;
+  color: white;
+}
+
+.tab-badge.inactive {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+.grid-section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 8px;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 300px);
+  gap: 20px;
+  width: 85%;
+  justify-content: start;
+}
+
+.pt-4 {
+  padding-top: 16px;
+}

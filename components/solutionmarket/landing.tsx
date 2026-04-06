@@ -1,9 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import { Search, ChevronDown, SlidersHorizontal } from "lucide-react"
+import { Search, SlidersHorizontal } from "lucide-react"
 import SolutionCard from "./CardsLanding"
 import CreateAppDropdown from "../CreateApp"
+import "../../styles/css/SolutionsMarketplace.css"
 
 // Mock data arrays matching the design
 const featuredSolutions = [
@@ -31,7 +32,7 @@ const featuredSolutions = [
     {
         id: 3,
         title: "Adani Conversational BI",
-        description: "It helps user query the financial information calculate and analyse data",
+        description: "It helps user query the financial information calculate and analyze data",
         tags: ["#Multi Model"],
         gradient: "#5575D9",
     },
@@ -39,7 +40,7 @@ const featuredSolutions = [
         id: 4,
         title: "Procurement Agent",
         description: "AI agent automatically evaluates which LLM performs best for your workflow.",
-        tags: ["#Comparision"],
+        tags: ["#Comparison"],
         gradient: "#5384DD",
     }
 ]
@@ -50,28 +51,28 @@ const financeSolutions = [
         title: "Alpha Sense",
         description: "AI agent automatically evaluates which LLM performs best for your workflow.",
         tags: ["#Reporting", "#Finance"],
-        gradient: "from-blue-500 to-blue-600",
+        gradient: "#3B82F6", 
     },
     {
         id: 6,
         title: "Axis Capital",
         description: "AI agent automatically evaluates which LLM performs best for your workflow.",
         tags: ["#Number", "#Finance", "#Compare"],
-        gradient: "from-purple-500 to-indigo-500",
+        gradient: "#8B5CF6", 
     },
     {
         id: 7,
         title: "CLO_CDS",
         description: "AI agent automatically evaluates which LLM performs best for your workflow.",
         tags: ["#Report"],
-        gradient: "from-slate-600 to-slate-700",
+        gradient: "#475569", 
     },
     {
         id: 8,
         title: "Company Analysis",
         description: "AI agent automatically evaluates which LLM performs best for your workflow.",
         tags: ["#Reporting", "#Strategic"],
-        gradient: "from-fuchsia-500 to-pink-500",
+        gradient: "#D946EF", 
     }
 ]
 
@@ -79,94 +80,82 @@ export default function SolutionsMarketplace() {
     const [activeTab, setActiveTab] = useState("completed")
 
     return (
-        <div className="w-full flex flex-col gap-8 pb-10">
+        <div className="marketplace-container">
 
             {/* --- HEADER SECTION --- */}
-            <div className="flex justify-between items-end">
-                <div className="pt-2">
-                    <p className="text-[14px] text-gray-800 font-medium mb-0.5">Welcome to the</p>
-                    <h2 className="text-[28px] font-bold text-slate-900 tracking-tight leading-none">
+            <div className="marketplace-header">
+                <div>
+                    <p className="welcome-text">Welcome to the</p>
+                    <h2 className="marketplace-title">
                         Solutions Marketplace
                     </h2>
                 </div>
 
-                <div className="flex items-center gap-5">
+                <div className="header-actions">
                     {/* Search Bar */}
-                    <div className="relative flex items-center">
-                        <div className="absolute left-3 border-r border-gray-200 pr-2">
-                            <SlidersHorizontal className="w-4 h-4 text-gray-400" />
+                    <div className="search-container">
+                        <div className="search-icon-left">
+                            <SlidersHorizontal size={16} color="#9ca3af" />
                         </div>
                         <input
                             type="text"
                             placeholder="Search for a solution..."
-                            className="pl-12 pr-10 py-2 w-[300px] border border-gray-200 rounded-lg focus:outline-none focus:border-[#4B3B8E] focus:ring-1 focus:ring-[#4B3B8E] text-sm text-gray-700 placeholder:text-gray-400 shadow-sm"
+                            className="search-input"
                         />
-                        <Search className="w-4 h-4 text-gray-400 absolute right-3" />
+                        <Search size={16} className="search-icon-right" />
                     </div>
 
                     {/* Create Button */}
-                        <CreateAppDropdown/>
-
+                    <CreateAppDropdown/>
                 </div>
             </div>
 
             {/* --- TABS SECTION --- */}
-            <div className="flex border-b border-gray-200 mt-2">
+            <div className="tabs-section">
                 <button
                     onClick={() => setActiveTab("completed")}
-                    className={`pb-3 px-2 mr-6 font-semibold text-sm border-b-2 flex items-center gap-2 transition-colors ${activeTab === "completed"
-                        ? "border-[#3B2C85] text-[#3B2C85]"
-                        : "border-transparent text-gray-500 hover:text-gray-800"
-                        }`}
+                    className={`tab-button ${activeTab === "completed" ? "active" : ""}`}
                 >
                     Completed
-                    <span
-                        className={`py-0.5 px-2 rounded-full text-[10px] font-bold ${activeTab === "completed" ? "bg-[#3B2C85] text-white" : "bg-gray-100 text-gray-600"
-                            }`}
-                    >
+                    <span className={`tab-badge ${activeTab === "completed" ? "active" : "inactive"}`}>
                         12
                     </span>
                 </button>
 
                 <button
                     onClick={() => setActiveTab("draft")}
-                    className={`pb-3 px-2 font-semibold text-sm border-b-2 flex items-center gap-2 transition-colors ${activeTab === "draft"
-                        ? "border-[#3B2C85] text-[#3B2C85]"
-                        : "border-transparent text-gray-500 hover:text-gray-800"
-                        }`}
+                    className={`tab-button ${activeTab === "draft" ? "active" : ""}`}
                 >
                     Draft
-                    <span
-                        className={`py-0.5 px-2 rounded-full text-[10px] font-bold ${activeTab === "draft" ? "bg-[#3B2C85] text-white" : "bg-gray-100 text-gray-600"
-                            }`}
-                    >
+                    <span className={`tab-badge ${activeTab === "draft" ? "active" : "inactive"}`}>
                         03
                     </span>
                 </button>
             </div>
 
             {/* --- GRID SECTION --- */}
-            <div className="flex flex-col gap-8 mt-2">
+            <div className="grid-section">
 
                 {/* Featured Solutions */}
-                <div>
-                    <h3 className="text-[20px] font-bold text-slate-900 mb-4">Featured Solutions</h3>
-                    <div className="flex flex-wrap gap-6">
+                <section>
+                    <h3 className="section-title">Featured Solutions</h3>
+                    <div className="cards-grid">
                         {featuredSolutions.map((solution) => (
                             <SolutionCard key={solution.id} {...solution} />
                         ))}
                     </div>
-                </div>
+                </section>
 
                 {/* Finance Solutions */}
-                <div>
-                    <h3 className="text-[20px] font-bold text-slate-900 mb-4 pt-4">Finance Solutions</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+                <section>
+                    <h3 className="section-title pt-4">Finance Solutions</h3>
+                    <div className="cards-grid">
                         {financeSolutions.map((solution) => (
                             <SolutionCard key={solution.id} {...solution} />
                         ))}
                     </div>
-                </div>
+                </section>
+                
 
             </div>
         </div>

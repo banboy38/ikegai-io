@@ -4,10 +4,10 @@ import SolutionsMarketplace from "@/components/solutionmarket/landing"
 import UserSection from "@/components/settings/UserSection";
 export default function Home() {
   return (
-    <div className="w-screen flex flex-col gap-0">
+    <div className="w-[70rem] flex flex-col gap-0">
       
       {/* Heading Section */}
-      <div className="flex flex-col gap-2 pt-8 pb-4 px-4">
+      <div className="flex flex-col gap-2 pt-8 pb-4 px-4 ">
 
         {/* Heading */}
         <div className="text-3xl font-bold">User Settings</div>

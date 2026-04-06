@@ -1,4 +1,12 @@
+'use client'
+
+import { usePathname, useRouter } from "next/navigation"
+
 export default function SettingsLink(){
+
+    const pathname = usePathname()
+    const router = useRouter()
+    
     return(
         <div className="w-[12.625rem] bg-white border border-[#E9E9E9] h-full py-8 px-4 flex flex-col justify-between">
 
@@ -12,16 +20,16 @@ export default function SettingsLink(){
                     <div className="font-bold text-sm">Quick Access Links:</div>
                     
                     {/* Admin Dashboard */}
-                    <div className="bg-[#F5F5F5] text-[#515151] hover:bg-[#98AED5] duration-75 rounded py-2 px-3 hover:text-white hover:cursor-pointer">Admin Dashboard</div>
+                    <div onClick={()=>{router.push("/settings/admin")}} className={`bg-[#F5F5F5] text-[#515151] hover:bg-[#98AED5] duration-75 rounded py-2 px-3 hover:text-white hover:cursor-pointer ${pathname.includes('dashboard') ? "border-l-4 border-[#4144A7]" : ""} `}>Admin Dashboard</div>
 
                     {/* User Settings */}
-                    <div className="bg-[#F5F5F5] text-[#515151] hover:bg-[#98AED5] duration-75 rounded py-2 px-3 hover:text-white hover:cursor-pointer">User Settings</div>
+                    <div onClick={()=>{router.push("/settings/user")}} className={`bg-[#F5F5F5] text-[#515151] hover:bg-[#98AED5] duration-75 rounded py-2 px-3 hover:text-white hover:cursor-pointer ${ (pathname.includes('user') || pathname === "/settings") ? "border-l-4 border-[#4144A7]" : ""}`}>User Settings</div>
 
                     {/* Access Settings */}
-                    <div className="bg-[#F5F5F5] text-[#515151] hover:bg-[#98AED5] duration-75 rounded py-2 px-3 hover:text-white hover:cursor-pointer">Access Settings</div>
+                    <div onClick={()=>{router.push("/settings/access")}} className={`bg-[#F5F5F5] text-[#515151] hover:bg-[#98AED5] duration-75 rounded py-2 px-3 hover:text-white hover:cursor-pointer ${pathname.includes('access') ? "border-l-4 border-[#4144A7]" : ""}`}>Access Settings</div>
 
                     {/* Team Settings */}
-                    <div className="bg-[#F5F5F5] text-[#515151] hover:bg-[#98AED5] duration-75 rounded py-2 px-3 hover:text-white hover:cursor-pointer">Team Settings</div>
+                    <div onClick={()=>{router.push("/settings/team")}} className={`bg-[#F5F5F5] text-[#515151] hover:bg-[#98AED5] duration-75 rounded py-2 px-3 hover:text-white hover:cursor-pointer ${pathname.includes('team') ? "border-l-4 border-[#4144A7]" : ""}`}>Team Settings</div>
                 </div>
 
                 {/* New Links Section */}

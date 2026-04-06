@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import NewUser from "./NewUser"
+import ExistingUser from "./ExistingUser"
 
 export default function UserSection(){
 
@@ -28,9 +29,7 @@ export default function UserSection(){
                     ?
                     <NewUser/>
                     :
-                    <div>
-                        dsojfojdsoj
-                    </div>
+                    <ExistingUser/>
                 }
 
             </div>

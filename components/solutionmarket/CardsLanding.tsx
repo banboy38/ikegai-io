@@ -1,103 +1,101 @@
 "use client"
 
+import { useState, useRef } from "react"
+import Link from "next/link"
 import {
     LayoutGrid, Bookmark,
     MoreVertical, Eye, Pencil, Play, Copy
 } from "lucide-react"
-import { Card, CardHeader, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import CardDropdown from "./CardDropdown"
+import "@/styles/css/CardsLanding.css"
+import "@/styles/css/Navbar.css"
 
-export default function SolutionCard({
-    title,
-    description,
-    tags,
-    gradient
-}: {
+export default function SolutionCard({id, title, description, tags, gradient}:
+{
+    id: number | string,
     title: string,
     description: string,
     tags: string[],
     gradient: string
-}) {
-    return (
-        <Card style={{ backgroundColor: gradient }} className={`border-0 rounded-4xl py-2 flex flex-col h-[20rem] w-[20rem] text-white shadow-sm hover:shadow-md transition-all overflow-hidden`}>
+}) 
+{
+    const [showDropdown, setShowDropdown] = useState(false)
+    const [anchorRect, setAnchorRect] = useState<DOMRect | null>(null)
+    const buttonRef = useRef<HTMLButtonElement>(null)
 
-            <CardHeader className="p-4 pb-0 space-y-0 shrink-0">
-                <div className="flex justify-between items-start mb-3">
-                    <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center backdrop-blur-sm">
-                        <LayoutGrid className="w-[20px] h-[20px] text-white" />
+    const handleDropdownToggle = () => {
+        if (buttonRef.current) {
+            setAnchorRect(buttonRef.current.getBoundingClientRect())
+        }
+        setShowDropdown(!showDropdown)
+    }
+
+    return (
+        <div style={{ backgroundColor: gradient }} className="solution-card">
+            <div className="solution-card-header">
+                <div className="card-header-top">
+                    <div className="icon-container">
+                        <LayoutGrid size={20} />
                     </div>
-                    <div className="flex items-center">
-                        <Button variant="ghost" size="icon" className="h-8 w-8 text-white hover:bg-white/20 hover:text-white rounded-full">
-                            <Bookmark className="w-[18px] h-[18px]" />
-                        </Button>
-                        <Button variant="ghost" size="icon" className="h-8 w-8 text-white hover:bg-white/20 hover:text-white rounded-full">
-                            <MoreVertical className="w-[18px] h-[18px]" />
-                        </Button>
+                    <div className="action-buttons">
+                        <button className="ghost-btn">
+                            <Bookmark size={18} />
+                        </button>
+                        <div className="dropdown-container">
+                            <button 
+                                ref={buttonRef}
+                                className="ghost-btn"
+                                onClick={handleDropdownToggle}
+                            >
+                                <MoreVertical size={18} />
+                            </button>
+                            <CardDropdown 
+                                id={id}
+                                isOpen={showDropdown} 
+                                onClose={() => setShowDropdown(false)} 
+                                anchorRect={anchorRect}
+                            />
+                        </div>
                     </div>
                 </div>
-                <h4 className="text-[26px] font-bold leading-tight line-clamp-2">{title}</h4>
-            </CardHeader>
+                <h4 className="solution-card-title">{title}</h4>
+            </div>
 
-            <CardContent className="p-4 pt-1 pb-2 flex-1 flex flex-col min-h-0 overflow-hidden">
-                <p className="text-[13px] text-white/80 line-clamp-3 mb-3 leading-relaxed">
+            <div className="solution-card-content">
+                <p className="solution-card-description">
                     {description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mt-auto shrink-0 overflow-hidden">
+                <div className="tag-container">
                     {tags.map((tag, i) => (
-                        <Badge
-                            key={i}
-                            variant="ghost"
-                            className="bg-white/20 text-white/90 hover:bg-white/30 border-0 font-medium text-[11px] px-2.5 py-0.5"
-                        >
+                        <span key={i} className="solution-badge">
                             {tag}
-                        </Badge>
+                        </span>
                     ))}
-                </div>
-            </CardContent>
-
-            <div className="px-3 pb-2 w-full shrink-0 mt-auto">
-                <div className="w-full bg-white/10 backdrop-blur-md rounded-full p-1.5 flex items-center justify-start group/nav">
-                    <div className="flex items-center gap-1 pl-1 justify-between w-full">
-
-                        {/* View Button */}
-                        <button className="group/btn flex items-center text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 rounded-full p-2">
-                            <Eye className="w-[16px] h-[16px] shrink-0" />
-                            <span className="overflow-hidden whitespace-nowrap text-sm font-medium transition-all duration-300 max-w-0 opacity-0 ml-0 group-hover/btn:max-w-[50px] group-hover/btn:opacity-100 group-hover/btn:ml-2">
-                                View
-                            </span>
-                        </button>
-
-                        {/* Edit Button */}
-                        <button className="group/btn flex items-center text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 rounded-full p-2">
-                            <Pencil className="w-[16px] h-[16px] shrink-0" />
-                            <span className="overflow-hidden whitespace-nowrap text-sm font-medium transition-all duration-300 max-w-0 opacity-0 ml-0 group-hover/btn:max-w-[40px] group-hover/btn:opacity-100 group-hover/btn:ml-2">
-                                Edit
-                            </span>
-                        </button>
-
-                        {/* Copy Button */}
-                        <button className="group/btn flex items-center text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 rounded-full p-2">
-                            <Copy className="w-[16px] h-[16px] shrink-0" />
-                            <span className="overflow-hidden whitespace-nowrap text-sm font-medium transition-all duration-300 max-w-0 opacity-0 ml-0 group-hover/btn:max-w-[50px] group-hover/btn:opacity-100 group-hover/btn:ml-2">
-                                Copy
-                            </span>
-                        </button>
-
-                        {/* Play Button - EXPANDED BY DEFAULT */}
-                        <button className="group/btn flex items-center text-white/90 hover:text-white bg-white/20 group-hover/nav:bg-transparent group-hover/btn:bg-white/20 transition-all duration-300 rounded-full p-2">
-                            <Play className="w-[16px] h-[16px] shrink-0" />
-                            {/* Notice: Default max-w is [60px] and opacity is 100. On nav hover, it goes to 0. On btn hover, it forces back to [60px] */}
-                            <span className="overflow-hidden whitespace-nowrap text-sm font-medium transition-all duration-300 max-w-[60px] opacity-100 ml-2 group-hover/nav:max-w-0 group-hover/nav:opacity-0 group-hover/nav:ml-0 group-hover/btn:max-w-[60px] group-hover/btn:opacity-100 group-hover/btn:ml-2">
-                                Play
-                            </span>
-                        </button>
-
-                    </div>
                 </div>
             </div>
 
-        </Card>
+            <div className="solution-card-footer">
+                <div className="card-pill-footer">
+                    <button className="footer-icon-btn">
+                        <Eye size={18} />
+                        <span className="footer-btn-text">View</span>
+                    </button>
+                    <button className="footer-icon-btn">
+                        <Pencil size={18} />
+                        <span className="footer-btn-text">Edit</span>
+                    </button>
+                    <button className="footer-icon-btn">
+                        <Copy size={18} />
+                        <span className="footer-btn-text">Copy</span>
+                    </button>
+                    <Link href={`/solution/playground/${id}`} className="footer-icon-btn playground">
+                        <Play size={18} />
+                        <span className="footer-btn-text">Playground</span>
+                    </Link>
+                </div>
+            </div>
+
+        </div>
     )
 }

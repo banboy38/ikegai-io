@@ -2,18 +2,13 @@ import type { Metadata } from "next";
 import { Roboto, Inter } from 'next/font/google';
 import NavBar from "@/components/navbar";
 import SideBar from "@/components/sidebar";
-import "./../globals.css";
+import SettingsLink from "@/components/settings/SettingLinks";
 
 
 const roboto = Roboto({
   weight: ['400', '500', '700'],
   subsets: ['latin'],
   variable: '--font-roboto', // Creates a CSS variable
-});
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
@@ -31,20 +26,20 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${roboto.variable} antialiased`}
       >
-        <div className="flex h-screen bg-white font-sans text-slate-800 overflow-hidden">
+        <div className="flex flex-col h-screen bg-white font-sans text-slate-800 overflow-hidden">
 
-          {/* 1. The Constant Sidebar on the left */}
-          <SideBar />
+          {/* 1. The Constant Navbar at the top */}
+          <NavBar />
 
           {/* The right side container for Navbar + Dynamic Content */}
-          <div className="flex-1 flex flex-col overflow-hidden bg-gray-50">
+          <div className="flex-1 flex h-full overflow-hidden">
 
-            {/* 2. The Constant Navbar at the top */}
-            <NavBar />
+            {/* 2. The Constant Sidebar on the left */}
+            <SideBar />
 
-            {/* 3. The Dynamic Content Area */}
+            {/* 4. The Dynamic Content Area */}
             {/* overflow-auto ensures only this section scrolls, not the whole page */}
-            <main className="flex-1 overflow-auto p-8">
+            <main className="flex-1 overflow-auto">
               {children}
             </main>
 

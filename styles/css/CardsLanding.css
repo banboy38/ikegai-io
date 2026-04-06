@@ -1,0 +1,226 @@
+.solution-card {
+  border: 0;
+  border-radius: 32px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 300px;
+  color: white;
+  box-shadow: none;
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.solution-card:hover {
+  box-shadow: none;
+}
+
+.solution-card-header {
+  padding: 16px 20px 0;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.card-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.icon-container {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.icon-container svg {
+  width: 18px;
+  height: 18px;
+  color: #ffcc00;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ghost-btn, .footer-icon-btn {
+  height: 32px;
+  width: 32px;
+  color: white;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.ghost-btn:hover, .footer-icon-btn:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+  box-shadow: none;
+  opacity: 1;
+}
+
+.solution-card-title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 4px 0 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 50px;
+}
+
+.solution-card-content {
+  padding: 0 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.solution-card-description {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 8px 0 12px 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 38px;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.solution-badge {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  border: none;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.solution-card:hover .solution-badge {
+  color: rgba(255, 255, 255, 1);
+}
+
+.solution-card-footer {
+  padding: 12px 16px 16px;
+  width: 100%;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.card-pill-footer {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  border-radius: 32px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 44px;
+}
+
+.footer-icon-btn {
+  width: auto;
+  min-width: 32px;
+  padding: 0 8px;
+  border-radius: 16px;
+}
+
+.footer-btn-text {
+  font-size: 12px;
+  font-weight: 600;
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.footer-icon-btn:hover .footer-btn-text {
+  max-width: 90px;
+  opacity: 1;
+  margin-left: 8px;
+}
+
+/* PORTAL DROPDOWN STYLES */
+.dropdown-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+
+.card-dropdown-portal {
+  position: absolute;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 6px;
+  z-index: 1000;
+  min-width: 150px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 16px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #f9fafb;
+}
+
+.dropdown-text {
+  color: #1f2937;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: #f3f4f6;
+  margin: 4px 8px;
+}

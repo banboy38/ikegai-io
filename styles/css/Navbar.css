@@ -1,0 +1,284 @@
+/* --- TOP NAVBAR --- */
+.top-nav {
+  height: 64px;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  background-color: #EBEBEB;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.top-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+  border-left: 1px solid #e5e7eb;
+  padding-left: 24px;
+}
+
+.top-nav-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-nav-btn:hover {
+  color: #4b5563;
+}
+
+.top-nav-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.notification-dot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  border: 2px solid #EBEBEB;
+}
+
+/* --- SIDEBAR (SIDE NAVBAR) --- */
+.side-nav {
+  width: 200px;
+  height: 100vh;
+  background-color: #EBEBEB;
+  border-right: 1px solid #f3f4f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.side-nav-logo-section {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.side-nav-logo {
+  font-size: 24px;
+  font-weight: 900;
+  color: #00338D;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.side-nav-section {
+  padding: 10px 0;
+}
+
+.side-nav-header {
+  padding: 0 24px;
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.side-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.side-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.side-nav-link.active {
+  background-color: #eef2f9;
+  color: #2951a3;
+  border-left: 4px solid #2951a3;
+  font-weight: 600;
+}
+
+.side-nav-link.inactive {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.side-nav-link.inactive:hover {
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+.side-nav-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+.side-nav-bottom {
+  padding: 16px;
+  margin-bottom: 8px;
+  border-top: 1px solid #f9fafb;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border: 1px solid #4b3b8e;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.user-profile:hover {
+  background-color: #f9fafb;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-icon-wrapper {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #eeedf5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-icon-wrapper svg {
+  width: 12px;
+  height: 12px;
+  color: #4b3b8e;
+}
+
+.username {
+  font-size: 14px;
+  font-weight: 500;
+  color: #4b3b8e;
+}
+
+.power-icon {
+  width: 16px;
+  height: 16px;
+  color: #4b3b8e;
+}
+
+/* --- CARD FOOTER NAVBAR --- */
+.card-nav-bar {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 9999px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.card-nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-left: 4px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-nav-btn {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.9);
+  background: transparent;
+  border: none;
+  border-radius: 9999px;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-nav-btn:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.card-nav-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.card-nav-btn-text {
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  max-width: 0;
+  opacity: 0;
+  margin-left: 0;
+}
+
+.card-nav-btn:hover .card-nav-btn-text {
+  opacity: 1;
+  margin-left: 8px;
+}
+
+/* Specific text widths for different buttons */
+.card-nav-btn.view:hover .card-nav-btn-text { max-width: 50px; }
+.card-nav-btn.edit:hover .card-nav-btn-text { max-width: 40px; }
+.card-nav-btn.copy:hover .card-nav-btn-text { max-width: 50px; }
+.card-nav-btn.play:hover .card-nav-btn-text { max-width: 60px; }
+
+/* Play button special behavior: expanded by default unless nav is hovered */
+.card-nav-btn.play {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.card-nav-btn.play .card-nav-btn-text {
+  max-width: 60px;
+  opacity: 1;
+  margin-left: 8px;
+}
+
+/* When the whole nav is hovered, the play button collapses unless it's specifically hovered */
+.card-nav-bar:hover .card-nav-btn.play {
+  background-color: transparent;
+}
+
+.card-nav-bar:hover .card-nav-btn.play .card-nav-btn-text {
+  max-width: 0;
+  opacity: 0;
+  margin-left: 0;
+}
+
+.card-nav-bar:hover .card-nav-btn.play:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.card-nav-bar:hover .card-nav-btn.play:hover .card-nav-btn-text {
+  max-width: 60px;
+  opacity: 1;
+  margin-left: 8px;
+}

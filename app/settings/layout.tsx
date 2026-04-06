@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Roboto, Inter } from 'next/font/google';
 import NavBar from "@/components/navbar";
 import SideBar from "@/components/sidebar";
-import "./../globals.css";
 import SettingsLink from "@/components/settings/SettingLinks";
 
 
@@ -38,19 +37,14 @@ export default function RootLayout({
             {/* 2. The Constant Sidebar on the left */}
             <SideBar />
 
+            {/* 3. Settings quick links */}
+            <SettingsLink/>
 
-            <div className="flex flex-row h-full">
-
-              {/* 3. Settings quick links */}
-              <SettingsLink/>
-
-              {/* 4. The Dynamic Content Area */}
-              {/* overflow-auto ensures only this section scrolls, not the whole page */}
-              <main className="flex-1 overflow-auto">
-                {children}
-              </main>
-
-            </div>
+            {/* 4. The Dynamic Content Area */}
+            {/* overflow-auto ensures only this section scrolls, not the whole page */}
+            <main className="flex-1 overflow-auto">
+              {children}
+            </main>
 
           </div>
 

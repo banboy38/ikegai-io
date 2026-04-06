@@ -4,6 +4,8 @@ import { useState } from "react";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { CgClose } from "react-icons/cg";
 import { FaMagnifyingGlass } from "react-icons/fa6";
+import { Dropdown } from "../Dropdown";
+import AccessSettings from "./AccessSettings";
 
 export default function NewUser(){
 
@@ -14,6 +16,8 @@ export default function NewUser(){
     const [selectedMail, setSelectedMail] = useState<string[]>([])
 
     const [seePassword, setSeePassword] = useState(false)
+
+    const [access, setAccess] = useState<string | null>(null)
 
     const [payload, setPayload] = useState<{
         emails: string[];
@@ -49,7 +53,7 @@ export default function NewUser(){
             {/* Search Mail */}
             <div className="flex flex-col">
 
-                <div onClick={() => document.getElementById("mail")?.focus()} className={`border border-[#4144A7] w-200 ${ mail ? "max-h-[16rem]" : "max-h-10" } duration-150 rounded flex flex-col`}>
+                <div onClick={() => document.getElementById("mail")?.focus()} className={`border border-[#4144A7] w-240 ${ mail ? "max-h-[16rem]" : "max-h-10" } duration-150 rounded flex flex-col`}>
 
                     <div className="flex items-center gap-2 pl-2">
                         <FaMagnifyingGlass color="#686868" className={` ${mail ? "w-0" : "w-5"} duration-100`} />
@@ -58,6 +62,7 @@ export default function NewUser(){
 
                     </div>
 
+                    {/* List of mails */}
                     <div className="flex flex-col w-full overflow-auto">
                         {
                             mail != "" 
@@ -129,7 +134,7 @@ export default function NewUser(){
             <div className="w-full flex gap-4">
 
                 {/* User ID */}
-                <div className="flex flex-col w-98">
+                <div className="flex flex-col w-118">
 
                     <div className="font-bold text-[#656566]">User ID<span className="text-red-600 ml-1">*</span></div>
                     <input
@@ -142,13 +147,14 @@ export default function NewUser(){
                                 }
                             )
                         }}
+                        placeholder="User ID"
                         className="border border-[#999999] outline-none rounded h-8 px-2 py-1 text-[#6A6969]" type="text"
                     />
 
                 </div>
 
                 {/* Set Password */}
-                <div className="flex flex-col w-98">
+                <div className="flex flex-col w-118">
 
                     <div className="font-bold text-[#656566]">Set Password<span className="text-red-600 ml-1">*</span></div>
                     <div className="border border-[#999999] outline-none rounded h-8 px-2 flex items-center gap-2">
@@ -177,6 +183,7 @@ export default function NewUser(){
                                     )
                                 }
                             }
+                            placeholder="Password"
                             className="w-full outline-none rounded h-8 text-[#6A6969] -mt-0.5" id="setPassword" type={ seePassword ? "text" : "password"}
                         />
                     </div>
@@ -186,17 +193,71 @@ export default function NewUser(){
 
             </div>
 
-            <div className="flex flex-col">
+
+            {/* Assign Team */}
+            <div className="flex flex-col gap-0.5">
 
                 <div className="text-[#525252] font-bold">
                     Assign Team <span className="text-red-600 font-bold">*</span>
                 </div>
 
-                <div className="">
+                <div className=" text-red-600 text-xs">
                     *Note :  To add/remove any component from here, please visit Team settings page
                 </div>
 
+                <div className=" text-[#848484] text-xs">
+                    A team contains all the components which may effect the costing
+                </div>
+
+                <Dropdown options={['IKE.GAI','Business Consulting','Data Analytics']} placeholder="Select a team"/>
+
             </div>
+
+            {/* Assign Access */}
+            <div className="flex flex-col gap-0.5"> 
+
+                <div className="text-[#525252] font-bold">
+                    Assign Access <span className="text-red-600 font-bold">*</span>
+                </div>
+
+                <div className=" text-[#848484] text-xs">
+                    It will help user set access for different pages and components inside the pages
+                </div>
+
+
+                {/* Choose Access */}
+                <div className="flex gap-2 mt-2">
+                    
+                    {/* Existing Access */}
+                    <div onClick={()=> access === "existing" ? setAccess(null) : setAccess("existing") } className={`select-none border-1 border-[#4144A7] ${access == "existing" ? "text-white bg-[#4144A7]" : "text-[#4144A7] bg-white"} duration-150 hover:cursor-pointer rounded text-xs font-semibold w-[14rem] grid place-content-center h-[1.8rem]`}>
+                        Choose Existing Access
+                    </div>
+                    
+                    {/* New Access */}
+                    <div onClick={()=> access === "new" ? setAccess(null) : setAccess("new") } className={`select-none border-1 border-[#4144A7] ${access == "new" ? "text-white bg-[#4144A7]" : "text-[#4144A7] bg-white"} duration-150 hover:cursor-pointer text-[#4144A7] rounded text-xs font-semibold w-[14rem] grid place-content-center h-[1.8rem]`}>
+                        Create new access
+                    </div>
+
+                </div>
+                
+                {
+                    access == "existing"
+                    ?
+                        <Dropdown options={['Developer', 'Manager', 'Director']} placeholder="Select saved access"/>
+                    :
+                    
+                    access == "new"
+                    ?
+
+                    <AccessSettings/>
+
+                    :
+
+                    <></>
+                }
+
+            </div>
+
 
         </div>
     )

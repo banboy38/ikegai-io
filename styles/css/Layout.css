@@ -1,0 +1,22 @@
+.layout-root {
+  display: flex;
+  height: 100vh;
+  background-color: white;
+  color: #1e293b; /* text-slate-800 */
+  overflow: hidden;
+  font-family: var(--font-roboto), sans-serif;
+}
+
+.content-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #f9fafb; /* bg-gray-50 */
+}
+
+.main-content {
+  flex: 1;
+  overflow: auto;
+  padding: 32px; /* p-8 */
+}

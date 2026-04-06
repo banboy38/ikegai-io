@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useRef, useEffect } from 'react';
-import { ChevronDown } from 'lucide-react'; // Kept ChevronDown for the button arrow
-import './../styles/css/CreateApp.css';
+import Link from 'next/link';
+import { ChevronDown, Info } from 'lucide-react';
+import '@/styles/css/CreateApp.css';
 
 const CreateAppDropdown = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -19,34 +20,37 @@ const CreateAppDropdown = () => {
     }, []);
 
     return (
-        <div className="relative inline-block" ref={dropdownRef}>
+        <div className="dropdown-container" ref={dropdownRef}>
             {/* Toggle Button */}
             <button 
                 onClick={() => setIsOpen(!isOpen)}
-                className="bg-[#3B2C85] hover:bg-[#2A1F63] text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-medium shadow-sm transition-colors"
+                className="create-app-btn"
             >
                 + Create New App
-                <span className="border-l border-white/20 pl-2 ml-1">
-                    <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                <span className="btn-divider">
+                    <ChevronDown className={`arrow-icon ${isOpen ? 'rotate' : ''}`} />
                 </span>
             </button>
 
-            {/* Dropdown Menu - Icons Removed */}
+            {/* Dropdown Menu */}
             {isOpen && (
-                <ul className="absolute top-full right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-xl z-50 py-1 overflow-hidden">
-                    <li 
-                        className="px-4 py-3 text-gray-700 hover:bg-gray-50 cursor-pointer transition-colors"
-                        onClick={() => { console.log("Form Builder"); setIsOpen(false); }}
+                <div className="dropdown-menu">
+                    <Link 
+                        href="/solution/agent-builder"
+                        className="dropdown-item"
+                        onClick={() => setIsOpen(false)}
+                        style={{ textDecoration: 'none' }}
                     >
-                        <span className="text-sm font-medium">Form Builder</span>
-                    </li>
-                    <li 
-                        className="px-4 py-3 text-gray-700 hover:bg-gray-50 cursor-pointer transition-colors"
+                        <span className="dropdown-item-text">Form Builder</span>
+                    </Link>
+                    <button 
+                        className="dropdown-item"
                         onClick={() => { console.log("Visual Builder"); setIsOpen(false); }}
                     >
-                        <span className="text-sm font-medium">Visual Builder</span>
-                    </li>
-                </ul>
+                        <span className="dropdown-item-text">Visual Builder</span>
+                        <Info className="info-icon" size={16} />
+                    </button>
+                </div>
             )}
         </div>
     );
